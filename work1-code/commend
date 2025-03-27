@@ -1,0 +1,65 @@
+cd MST/simulation/train_code/
+
+# MST_S
+python train.py --template mst_s --outf ./exp/mst_s/ --method mst_s
+
+# MST_M
+python train.py --template mst_m --outf ./exp/mst_m/ --method mst_m
+
+# MST_L
+python train.py --template mst_l --outf ./exp/mst_l/ --method mst_l
+
+# CST_S
+python train.py --template cst_s --outf ./exp/cst_s/ --method cst_s
+
+# CST_M
+python train.py --template cst_m --outf ./exp/cst_m/ --method cst_m
+
+# CST_L
+python train.py --template cst_l --outf ./exp/cst_l/ --method cst_l
+
+# CST_L_Plus
+python train.py --template cst_l_plus --outf ./exp/cst_l_plus/ --method cst_l_plus
+
+# GAP-Net
+python train.py --template gap_net --outf ./exp/gap_net/ --method gap_net
+
+# ADMM-Net
+python train.py --template admm_net --outf ./exp/admm_net/ --method admm_net
+
+# TSA-Net
+python train.py --template tsa_net --outf ./exp/tsa_net/ --method tsa_net
+
+# HDNet
+python train.py --template hdnet --outf ./exp/hdnet/ --method hdnet
+
+# DGSMP
+python train.py --template dgsmp --outf ./exp/dgsmp/ --method dgsmp
+
+# BIRNAT
+python train.py --template birnat --outf ./exp/birnat/ --method birnat
+
+# MST_Plus_Plus
+python train.py --template mst_plus_plus --outf ./exp/mst_plus_plus/ --method mst_plus_plus
+
+# λ-Net
+python train.py --template lambda_net --outf ./exp/lambda_net/ --method lambda_net
+
+# DAUHST-2stg
+python train.py --template dauhst_2stg --outf ./exp/dauhst_2stg/ --method dauhst_2stg
+
+# DAUHST-3stg
+python train.py --template dauhst_3stg --outf ./exp/dauhst_3stg/ --method dauhst_3stg
+
+# DAUHST-5stg
+python train.py --template dauhst_5stg --outf ./exp/dauhst_5stg/ --method dauhst_5stg
+
+# DAUHST-9stg
+python train.py --template dauhst_9stg --outf ./exp/dauhst_9stg/ --method dauhst_9stg
+
+#herosnet
+python train.py --template herosnet --outf ./exp/herosnet/ --method herosnet
+
+#my_model
+python train.py --template my_model --outf ./exp/my_model/ --method my_model
+python train.py --template my_model --outf ./exp/my_model_transformmer/ --method my_model
