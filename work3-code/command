@@ -1,0 +1,22 @@
+python trainDDPM.py -p train -c config/cassi.json -gpu 3 -pretrained_model_path experiments/my_model/dauhst_3stg_2024_06_19_15_48_47/model/model_epoch_203_36.47_0.957.pth
+python trainDDPM.py -p train -c config/cassi.json -gpu 3 -pretrained_model_path experiments/my_model/dauhst_4stg_2024_06_17_20_59_27/model/model_epoch_202_36.21_0.956.pth
+python trainDDPM.py -p train -c config/cassi_shadow.json -gpu 1 -pretrained_model_path experiments/dauhst_3stg_2024_06_19_15_48_47/model/model_epoch_203_36.47_0.957.pth
+
+python trainDDPM.py -p train -c config/cassi_shadow_icvl.json -gpu 1 -pretrained_model_path experiments/dauhst_3stg_icvl/model_epoch_230.pth
+
+
+python trainCASSI.py --phase train --template my_model --outf ./experiments/my_model/ --method my_model --max_epoch 300 --batch_size 1 --gpu_id 0
+python trainCASSI_Finetune.py --phase train --template my_model --outf experiments/my_model/cassihst3stg_DDPMdhst3stgSPAallTrainl2loss_vconditionOnDhstInitAndMask_2stgFinetune_2024_08_04_20_45_45/fintuneStage_ --method my_model --pretrained_model_path experiments/my_model/cassihst3stg_DDPMdhst3stgSPAallTrainl2loss_vconditionOnDhstInitAndMask_2stgFinetune_2024_08_04_20_45_45/model/model_epoch_124_36.39_0.957.pth --max_epoch 100 --isFinetune True
+
+python test.py --phase val --template my_model --outf ./experiments/my_model/ablation/cassi-MambaNetCross-3stg-WithMaskAttn_SR3dhst3stg_vconditionOnDhstInitAndMask_predictMask_2024_11_25_08_40_24/result --method my_model --pretrained_model_path ./experiments/my_model/ablation/cassi-MambaNetCross-3stg-WithMaskAttn_SR3dhst3stg_vconditionOnDhstInitAndMask_predictMask_2024_11_25_08_40_24/model/model_epoch_281_37.28_0.963.pth --config config/cassi_shadow.json
+
+python trainCASSI.py --phase train --template my_model --outf ./experiments/my_model/cassihst3stg_SR3dhst3stg_vconditionOnDhstInitAndMask_predictMask_ --method my_model --max_epoch 300 --batch_size 5 --config config/cassi_shadow.json  
+python trainCASSI.py --phase train --template my_model --outf ./experiments/my_model/cassi-MambaNetCross-3stg-WithMaskAttn_SR3dhst3stg_vconditionOnDhstInitAndMask_predictMask_icvl_ --method my_model --max_epoch 300 --batch_size 5 --config config/cassi_shadow_icvl.json  --train_dataset ICVL --in_channels 24 --learning_rate 0.0008
+
+
+python trainCASSIReal.py --phase train --template my_model --outf ./experiments/my_model/real/cassi-MambaNetCross-3stg-WithMaskAttn_SR3dhst3stg_vconditionOnDhstInitAndMask_predictMask_ --method my_model_onlyMamba --max_epoch 300 --batch_size 1 --patch_size 660 --epoch_sam_num 3000 --config config/cassi_shadow.json --gpu_id 1 --learning_rate 0.0008 
+
+python test_real.py --template my_model --outf ./experiments/my_model/real/cassi-MambaNetCross-3stg-WithMaskAttn_SR3dhst3stg_vconditionOnDhstInitAndMask_predictMask_2024_12_07_19_01_26/result --method my_model_onlyMamba  --config config/cassi_shadow.json --gpu_id 7 --patch_size 660 --pretrained_model_path experiments/my_model/real/cassi-MambaNetCross-3stg-WithMaskAttn_SR3dhst3stg_vconditionOnDhstInitAndMask_predictMask_2024_12_07_19_01_26/model/model_epoch_96_0.00_0.000.pth
+
+
+python trainCASSIReal.py --phase train --template dauhst --outf ./experiments/my_model/real/dhm-3stg_ --method dhm --max_epoch 300 --batch_size 1 --patch_size 660 --epoch_sam_num 2000 --config config/cassi_shadow.json --gpu_id 4 --learning_rate 0.0004

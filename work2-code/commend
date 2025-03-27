@@ -1,0 +1,78 @@
+cd MST/simulation/train_code/
+
+python test.py --gpu_id 5 --template my_model_cmp7 --outf ./exp --method my_model_cmp7 --pretrained_model_path exp/my_model_complete/complete9_loss_x+0.005orimeas+0.001zmeas_ful3stg_3stg_2LReLU_Init256Phi_shiftResPhi_TrainOnICVL_2023_05_22_15_39_02/model/model_epoch_277.pth
+python test.py --gpu_id 5 --template mst_l --outf ./exp --method mst_l --pretrained_model_path exp/mst_l/TrainOnICVL_2023_05_27_19_04_44/model/model_epoch_298.pth
+python test.py --gpu_id 1 --template tsa_net --outf ./exp --method tsa_net --pretrained_model_path exp/tsa_net/TrainOnICVL_2023_05_12_09_10_42/model/model_epoch_282.pth
+python test.py --gpu_id 1 --template cst_l --outf ./exp --method cst_l --pretrained_model_path exp/cst_l/TrainOnICVL_2023_05_16_07_46_55/model/model_epoch_276.pth
+python test.py --gpu_id 5 --template herosnet --outf ./exp --method herosnet --pretrained_model_path exp/herosnet/TrainOnICVL_2023_05_23_07_33_41/model/model_epoch_100.pth
+python test.py --gpu_id 0 --template dgsmp --outf ./exp --method dgsmp --pretrained_model_path exp/dgsmp/TrainOnICVL_2023_05_14_14_23_47/model/model_epoch_270.pth
+python test.py --gpu_id 1 --template lambda_net --outf ./exp --method lambda_net --pretrained_model_path exp/lambda_net/TrainOnICVL_2023_05_12_10_59_28/model/model_epoch_295.pth
+python test.py --gpu_id 5 --template admm_net --outf ./exp --method admm_net --pretrained_model_path exp/admm_net/TrainOnICVL_2023_05_29_14_20_24/model/model_epoch_299.pth
+
+
+# MST_S
+python train.py --template mst_s --outf ./exp/mst_s/TrainOnICVL_ --method mst_s
+
+# MST_M
+python train.py --template mst_m --outf ./exp/mst_m/TrainOnICVL_ --method mst_m
+
+# MST_L
+python train.py --template mst_l --outf ./exp/mst_l/TrainOnICVL_ --method mst_l --gpu_id 3 --learning_rate 0.0002
+
+# CST_S
+python train.py --template cst_s --outf ./exp/cst_s/TrainOnICVL_ --method cst_s
+
+# CST_M
+python train.py --template cst_m --outf ./exp/cst_m/TrainOnICVL_ --method cst_m
+
+# CST_L
+python train.py --template cst_l --outf ./exp/cst_l/TrainOnICVL_ --method cst_l --max_epoch 300 --gpu_id 0
+
+# CST_L_Plus
+python train.py --template cst_l_plus --outf ./exp/cst_l_plus/TrainOnICVL_ --method cst_l_plus
+
+# GAP-Net
+python train.py --template gap_net --outf ./exp/gap_net/TrainOnICVL_ --method gap_net
+
+# ADMM-Net
+python train.py --template admm_net --outf ./exp/admm_net/TrainOnICVL_ --method admm_net
+
+# TSA-Net
+python train.py --template tsa_net --outf ./exp/tsa_net/TrainOnICVL_ --method tsa_net
+
+# HDNet
+python train.py --template hdnet --outf ./exp/hdnet/TrainOnICVL_ --method hdnet
+
+# DGSMP
+python train.py --template dgsmp --outf ./exp/dgsmp/TrainOnICVL_ --method dgsmp --gpu_id 3
+
+# BIRNAT
+python train.py --template birnat --outf ./exp/birnat/TrainOnICVL_ --method birnat
+
+# MST_Plus_Plus
+python train.py --template mst_plus_plus --outf ./exp/mst_plus_plus/TrainOnICVL_ --method mst_plus_plus
+
+# λ-Net
+python train.py --template lambda_net --outf ./exp/lambda_net/TrainOnICVL_ --method lambda_net
+
+# DAUHST-2stg
+python train.py --template dauhst_2stg --outf ./exp/dauhst_2stg/TrainOnICVL_ --method dauhst_2stg
+
+# DAUHST-3stg
+python train.py --template dauhst_3stg --outf ./exp/dauhst_3stg/TrainOnICVL_ --method dauhst_3stg
+
+# DAUHST-5stg
+python train.py --template dauhst_5stg --outf ./exp/dauhst_5stg/TrainOnICVL_ --method dauhst_5stg
+
+# DAUHST-9stg
+python train.py --template dauhst_9stg --outf ./exp/dauhst_9stg/TrainOnICVL_ --method dauhst_9stg
+
+#herosnet
+nohup python train.py --template herosnet --outf ./exp/herosnet/TrainOnICVL_ --method herosnet --gpu_id 3 &
+
+#my_model
+python train.py --template my_model_cmp7 --outf ./exp/my_model_complete/complete9_loss_x+0.001orimeas+0.0005zmeas_ful3stg_3stg_2LReLU_Init256Phi_shiftResPhi_TrainOnICVL_ --method my_model_cmp7 --max_epoch 300 --gpu_id 0
+
+python test.py --template my_model_cmp7 --outf ./exp/my_model_complete/complete9_loss_x+0.001orimeas+0.0005zmeas_duliDPPG_noReLU_ful3stg_3stg_2LReLU_Init256Phi_shiftResPhi_TrainOnICVL_2023_06_23_11_01_32 --method my_model_cmp7 --pretrained_model_path ./exp/my_model_complete/complete9_loss_x+0.001orimeas+0.0005zmeas_duliDPPG_noReLU_ful3stg_3stg_2LReLU_Init256Phi_shiftResPhi_TrainOnICVL_2023_06_23_11_01_32/model/model_epoch_12.pth --gpu_id 1
+
+python test.py --template my_model_baseline_1_2 --outf ./exp/my_model_1_2 --method my_model_baseline_1_2 --pretrained_model_path exp/my_model_1_2/laynorm+tanh_2023_04_17_21_18_34/model/model_epoch_57.pth --gpu_id 3
